@@ -1,0 +1,9 @@
+{
+  "name": "framework",
+  "description": "",
+  "license": "MIT",
+  "require": {
+    "php": ">=5.4.0",
+    "nikic/fast-route": "^1.2"
+  }
+}
