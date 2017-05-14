@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'FastRoute\\' => array($vendorDir . '/nikic/fast-route/src'),
+    'App\\' => array($baseDir . '/app'),
 );
