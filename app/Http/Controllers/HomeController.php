@@ -7,9 +7,16 @@
  */
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
 class HomeController extends Controller
 {
     public function home(){
-        var_dump(11);
+//        $request = Request::createFromGlobals();
+//        var_dump($request->getPathInfo());
+        $log = new Logger("name");
+        $log->pushHandler(new StreamHandler('a.log',Logger::INFO));
+        $log->addInfo("asdfafd");
     }
 }
