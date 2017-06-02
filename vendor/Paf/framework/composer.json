@@ -1,0 +1,23 @@
+{
+  "name": "Paf/framework",
+  "type": "composer-plugin",
+  "license": "MIT",
+  "version": "0.1",
+  "author": [
+      {
+          "name": "PiperJiang",
+          "email": "jp646274869@gmail.com"
+      }
+  ],
+  "require": {
+    "nikic/fast-route": "^1.2"
+  },
+  "autoload": {
+      "psr-4":{
+        "Paf\\": "src/"
+      }
+  }
+
+
+
+}

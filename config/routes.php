@@ -7,7 +7,9 @@
  */
 require '../vendor/nikic/fast-route/src/bootstrap.php';
 $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r){
-    $r->addRoute('GET','/','');
+    $r->addRoute('GET','/',function (){
+        echo  11;
+    });
     $r->addRoute('GET','/user','HomeController@home');
     $r->addGroup('/home',function (FastRoute\RouteCollector $r){
         $r->addRoute('GET','/test','HomeController@home');

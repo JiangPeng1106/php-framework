@@ -22,6 +22,7 @@ class ComposerStaticInitcf7c5e692bb81f4e98ba0944410e6960
         'P' => 
         array (
             'Psr\\Log\\' => 8,
+            'Paf\\' => 4,
         ),
         'M' => 
         array (
@@ -64,6 +65,10 @@ class ComposerStaticInitcf7c5e692bb81f4e98ba0944410e6960
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
+        'Paf\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/Paf/framework/src',
         ),
         'Monolog\\' => 
         array (
