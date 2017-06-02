@@ -7,10 +7,9 @@
  * Time: 20:53
  */
 namespace App\Http\Controllers;
-class Controller
-{
-    public function __construct()
-    {
 
-    }
+use Paf\Routing\Controller as BaseController;
+class Controller extends BaseController
+{
+
 }

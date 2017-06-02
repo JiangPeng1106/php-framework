@@ -10,7 +10,9 @@ require_once __DIR__.'/../vendor/autoload.php';
 $app = new Paf\Application(
     realpath(__DIR__.'/../')
 );
-$app->get('/ab',function (){
-    echo 11;
+$ab= 1;
+$app->get('/ab',function ()use($ab){
+    echo $ab;
 });
+$app->get('ac','');
 $app->run();

@@ -8,7 +8,8 @@
  */
 namespace Paf;
 
-class Application
+use Paf\Container\Container;
+class Application extends Container
 {
     use Route\RoutesRequests;
     protected $basePath;
@@ -16,8 +17,9 @@ class Application
     {
         $this->basePath = $basePath;
     }
-    public function test(){
-        echo 11;
+
+    public function make($abstract){
+
     }
 
 }

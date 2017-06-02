@@ -74,7 +74,8 @@ trait RoutesRequests
         }
     }
     protected function handleFoundRoute($routeInfo){
-        return $this->prepareResponse();
+        $this->callActionBaseRoute($routeInfo);
+//        return $this->prepareResponse();
     }
 
     protected function prepareResponse(){
@@ -83,8 +84,16 @@ trait RoutesRequests
     protected function callActionBaseRoute($routeInfo){
         $action = $routeInfo[1];
         if(isset($action['uses'])){
-            $this->callControllerAction($routeInfo);
+            return $this->callControllerAction($routeInfo);
         }
+
+        foreach ($action as $value){
+            if($value instanceof \Closure){
+                $closure = $value;
+                break;
+            }
+        }
+        $this->call($closure, $routeInfo[2]);
     }
 
     protected function callControllerAction($routeInfo){
@@ -92,10 +101,16 @@ trait RoutesRequests
         if(is_string($uses) && (mb_strpos($uses, '@') === false)){
             $uses .= '@__invoke';
         }
+        list($controller, $nethod) = explode('@', $uses);
+        $this->make();
     }
 
     protected function callControllerCallable(callable $callable, array $parameters = []){
-        call_user_func_array($callable, $parameters);
+        $this->call($callable, $parameters);
+    }
+
+    protected function call(callable $callback, array $parameters = []){
+        call_user_func_array($callback,$parameters);
     }
 
     public function run($request = null){
