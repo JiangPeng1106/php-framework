@@ -8,6 +8,7 @@ class ComposerStaticInitcf7c5e692bb81f4e98ba0944410e6960
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -26,6 +27,10 @@ class ComposerStaticInitcf7c5e692bb81f4e98ba0944410e6960
         'M' => 
         array (
             'Monolog\\' => 8,
+        ),
+        'F' => 
+        array (
+            'FastRoute\\' => 10,
         ),
         'D' => 
         array (
@@ -68,6 +73,10 @@ class ComposerStaticInitcf7c5e692bb81f4e98ba0944410e6960
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
+        'FastRoute\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nikic/fast-route/src',
         ),
         'Doctrine\\Instantiator\\' => 
         array (

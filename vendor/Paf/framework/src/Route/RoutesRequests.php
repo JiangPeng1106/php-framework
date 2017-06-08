@@ -10,6 +10,7 @@ namespace Paf\Route;
 
 use FastRoute\Dispatcher;
 use Symfony\Component\HttpFoundation\Request;
+use Paf\Routing\Controller as PafController;
 
 trait RoutesRequests
 {
@@ -101,10 +102,20 @@ trait RoutesRequests
         if(is_string($uses) && (mb_strpos($uses, '@') === false)){
             $uses .= '@__invoke';
         }
-        list($controller, $nethod) = explode('@', $uses);
-        $this->make();
+        list($controller, $method) = explode('@', $uses);
+        if(! method_exists(  $instance = $this->make($controller,$method), $method)){
+            return 11;
+        }
+        if($instance instanceof PafController){
+            $this->callPafController($instance, $method, $routeInfo);
+        }else{
+            $this->callControllerCallable([$instance, $method], $routeInfo[2]);
+        }
     }
 
+    protected function callPafController($instance, $method, $routeInfo){
+        $this->callControllerCallable([$instance, $method], $routeInfo[2]);
+    }
     protected function callControllerCallable(callable $callable, array $parameters = []){
         $this->call($callable, $parameters);
     }

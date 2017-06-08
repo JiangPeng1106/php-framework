@@ -14,7 +14,13 @@ use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 class HomeController extends Controller
 {
-    public function home(){
+    public function __construct(Request $request)
+    {
+
+    }
+
+    public function home($id,$title){
+            var_dump($request);
 //        $request = Request::createFromGlobals();
 //        var_dump($request->getPathInfo());
 //        $log = new Logger("name");

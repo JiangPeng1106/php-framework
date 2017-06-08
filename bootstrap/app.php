@@ -14,5 +14,5 @@ $ab= 1;
 $app->get('/ab',function ()use($ab){
     echo $ab;
 });
-$app->get('ac','');
+$app->get('/ac/{id:\d+}/{title:\d}','HomeController@home');
 $app->run();
