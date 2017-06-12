@@ -7,6 +7,9 @@
  * Time: 17:57
  */
 namespace Paf\Container;
+
+use Paf\Container\BoundMethod;
+
 class Container
 {
     protected $alias = [];
@@ -36,6 +39,10 @@ class Container
     public function resolve($abstract){
 
         return $this->bind($abstract);
+    }
+
+    public function call($callback, array $parameters = [], $defaultMethod = null){
+            BoundMethod::call($this, $callback, $parameters, $defaultMethod);
     }
 
 //    final public function __clone()

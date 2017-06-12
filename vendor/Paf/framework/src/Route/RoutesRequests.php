@@ -120,10 +120,6 @@ trait RoutesRequests
         $this->call($callable, $parameters);
     }
 
-    protected function call(callable $callback, array $parameters = []){
-        call_user_func_array($callback,$parameters);
-    }
-
     public function run($request = null){
         $this->dispatcher($request);
     }
