@@ -14,6 +14,13 @@ class Container
 {
     protected $alias = [];
 
+    /**
+     * The container's shared instances.
+     *
+     * @var array
+     */
+    protected $instance = [];
+
     protected $buildStack = [];
     public function bind($abstract){
         if($abstract instanceof \Closure){

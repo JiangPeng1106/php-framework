@@ -11,11 +11,13 @@ namespace Paf\Route;
 use FastRoute\Dispatcher;
 use Symfony\Component\HttpFoundation\Request;
 use Paf\Routing\Controller as PafController;
+//use Paf\Http\Request;
 
 trait RoutesRequests
 {
     protected $routes;
     protected $dispatcher;
+    protected $namespace = "App\\Http\\Controllers\\";
     public function get($url, $action){
         $this->addRoute("GET", $url, $action);
     }
@@ -103,8 +105,11 @@ trait RoutesRequests
             $uses .= '@__invoke';
         }
         list($controller, $method) = explode('@', $uses);
+        if(strpos($controller, "\\") === false){
+            $controller = $this->namespace.$controller;
+        }
         if(! method_exists(  $instance = $this->make($controller,$method), $method)){
-            return 11;
+            return false;
         }
         if($instance instanceof PafController){
             $this->callPafController($instance, $method, $routeInfo);

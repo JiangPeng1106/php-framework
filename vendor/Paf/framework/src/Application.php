@@ -13,14 +13,13 @@ class Application extends Container
 {
     use Route\RoutesRequests;
     protected $basePath;
-    protected $namespace = "App\\Http\\Controllers\\";
     public function __construct($basePath = NUll)
     {
         $this->basePath = $basePath;
     }
 
     public function make($abstract){
-        return parent::make($this->namespace.$abstract);
+        return parent::make($abstract);
     }
 
 }
