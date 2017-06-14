@@ -7,9 +7,9 @@
  */
 namespace App\Http\Controllers;
 
-
 use App\Http\Controllers\Controller;
 //use Symfony\Component\HttpFoundation\Request;
+use function foo\func;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use Paf\Http\Request;
@@ -22,7 +22,7 @@ class HomeController extends Controller
     }
 
     public function home(Request $request){
-            var_dump($request);
+//            var_dump($request->is());
 //            var_dump(Request::createFromGlobals());
 //            $request = Request::createFromGlobals();
 //            var_dump($request->query);

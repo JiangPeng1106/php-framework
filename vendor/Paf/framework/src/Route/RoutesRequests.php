@@ -9,9 +9,9 @@
 namespace Paf\Route;
 
 use FastRoute\Dispatcher;
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
 use Paf\Routing\Controller as PafController;
-//use Paf\Http\Request;
+use Paf\Http\Request;
 
 trait RoutesRequests
 {
@@ -58,10 +58,18 @@ trait RoutesRequests
         );
     }
 
+    /**
+     * Parse the incoming request and return the method and path info.
+     *
+     * @param  \Symfony\Component\HttpFoundation\Request|null  $request
+     * @return array
+     */
     protected function parseIncomingRequest($request){
         if(!$request){
-            $request = Request::createFromGlobals();
+            $request = Request::capture();
         }
+
+        $this->instance(Request::class, $this->prepareRequest($request));
         return [$request->getMethod(), $request->getPathInfo()];
     }
 
