@@ -135,4 +135,41 @@ class Arr
         return $results;
     }
 
+    /**
+     * Pluck an array of values from an array.
+     *
+     * @param array $array
+     * @param string|array $value
+     * @param string|array|null $key
+     * @return array
+     */
+    public static function pluck($array, $value, $key = null){
+        $result = [];
+        list($value, $key) = static::explodePluckParameters($value, $key);
+        foreach ($array as $item){
+            $itemValue = data_get($item, $value);
+
+            if(is_null($key)){
+                $result[] = $itemValue;
+            }else{
+                $itemKey = data_get($item, $key);
+                $result[$itemKey] = $itemValue;
+            }
+        }
+        return $result;
+    }
+
+    /**
+     * Explode  the "value" and "key" arguments passed to "pluck".
+     *
+     * @param string|array $value
+     * @param  string|null|array $key
+     * @return array
+     */
+    protected  static function explodePluckParameters($value, $key){
+        $value = is_string($value) ? explode('.', $value) : $value;
+        $key = is_null($key) || is_array($key) ? $key : explode('.', $key);
+        return [$value, $key];
+    }
+
 }

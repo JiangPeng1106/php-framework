@@ -9,7 +9,7 @@ class ComposerStaticInitcf7c5e692bb81f4e98ba0944410e6960
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
-        '788357c302b17d498aef4db814a29307' => __DIR__ . '/..' . '/Paf/framework/src/helpers.php',
+        '148cf672b8bdef7d83c3a3236910dda0' => __DIR__ . '/..' . '/Paf/framework/src/Support/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (

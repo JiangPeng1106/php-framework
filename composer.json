@@ -14,7 +14,7 @@
         "App\\": "app/",
         "Paf\\": "vendor/Paf/framework/src/"
       },
-      "files":["vendor/Paf/framework/src/helpers.php"]
+      "files":[ "vendor/Paf/framework/src/Support/helpers.php"]
 
   }
 }

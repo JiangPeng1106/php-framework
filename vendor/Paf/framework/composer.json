@@ -19,7 +19,8 @@
   "autoload": {
       "psr-4":{
         "Paf\\": "src/"
-      }
+      },
+      "files": ["src/Support/helpers.php"]
   }
 
 
